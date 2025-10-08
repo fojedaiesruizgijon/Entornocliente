@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function verCalificacion(nota) {
+            if ( nota>0 && nota<5) {
+                return "insuficiente";
+            }
+            if (nota>=5 && nota<7) {
+                return "bien";
+            }
+            if (nota>=7 && nota<9) {
+                return "notable"
+            }
+            if (nota>9) {
+                return "sobresaliente"
+            }
+        }
+       let num1;
+        num1 = parseInt(prompt('Ingrese el primer número:'));
+        verCalificacion(num1);
+
+
+    </script>
+</body>
+</html>
