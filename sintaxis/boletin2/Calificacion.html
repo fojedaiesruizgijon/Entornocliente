@@ -9,23 +9,67 @@
     <script>
         function verCalificacion(nota) {
             if ( nota>0 && nota<5) {
-                return "insuficiente";
+                return alert("insuficiente");
             }
             if (nota>=5 && nota<7) {
-                return "bien";
+                return alert("bien");
             }
             if (nota>=7 && nota<9) {
-                return "notable"
+                return alert("notable");
+
             }
             if (nota>9) {
-                return "sobresaliente"
+                return alert("sobresaliente");
+
+            }
+            if (nota<0 ||nota>10) {
+                return alert("valor incorrecto")
+            }
+        }
+             function vercalificacion(nota) {
+            if ( nota>0 && nota<5) {
+                return ("insuficiente");
+            }
+            if (nota>=5 && nota<7) {
+                return ("bien");
+            }
+            if (nota>=7 && nota<9) {
+                return ("notable");
+
+            }
+            if (nota>9) {
+                return ("sobresaliente");
+
+            }
+            if (nota<0 ||nota>10) {
+                return ("valor incorrecto")
             }
         }
        let num1;
         num1 = parseInt(prompt('Ingrese el primer número:'));
         verCalificacion(num1);
+        
+        function testeo() {
+            let notas = [-1.5, 0, 1, 2, 3, 4.5, 4.9, 5, 5.1, 5.9, 6, 6.1, 6.9, 7, 7.1, 7.9, 8, 8.1, 8.9, 9, 9.1, 9.9, 10, 11];
+            for (let i = 0; i < notas.length; i++) {
+              console.log(notas[i]);
+                
+            }
+        }
+        
+        function testeo2() {
+              let notas = [-1.5, 0, 1, 2, 3, 4.5, 4.9, 5, 5.1, 5.9, 6, 6.1, 6.9, 7, 7.1, 7.9, 8, 8.1, 8.9, 9, 9.1, 9.9, 10, 11];
+        
+            for (let i = 0; i < notas.length; i++) {
+                let nota = notas[i];
+              console.log("{ nota:", nota ," valorEsperado: ", vercalificacion(nota),"}" );
 
+        }
+    }
+      
 
+            testeo();
+            testeo2();
     </script>
 </body>
 </html>
