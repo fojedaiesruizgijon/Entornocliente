@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let num=[5.653,2.34,6.56,7.3536,8,6,4,2,8,9,8,7];
+        let redondeo=2;
+        function calculaMedia (a,b) {
+            let cont=a.length;
+            let total=0;
+            for (let i = 0; i < a.length; i++) {
+                let numero = a[i];
+                total +=numero;
+                console.log(numero);
+                
+            }
+            let media=0;
+             media=total/cont;
+            let redondeo2 = media.toFixed(2); //2 decimales
+            console.log(redondeo2);
+            vercalificacion(redondeo2)
+        }
+
+            function vercalificacion(nota) {
+            if ( nota>0 && nota<5) {
+                return ("insuficiente");
+            }
+            if (nota>=5 && nota<7) {
+                return ("bien");
+            }
+            if (nota>=7 && nota<9) {
+                return ("notable");
+
+            }
+            if (nota>8.9) {
+                return ("sobresaliente");
+
+            }
+            if (nota<0 ||nota>10) {
+                return ("valor incorrecto")
+            }
+        }
+
+         calculaMedia(num,redondeo);
+    </script>
+</body>
+</html>
