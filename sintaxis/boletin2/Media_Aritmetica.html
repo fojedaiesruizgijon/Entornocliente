@@ -20,9 +20,10 @@
             }
             let media=0;
              media=total/cont;
-            let redondeo2 = media.toFixed(2); //2 decimales
+            decimales=2;
+            redondeo2=Math.round(media* Math.pow(10, decimales)) / Math.pow(10, decimales);//paso el string a numero con decimales
             console.log(redondeo2);
-            vercalificacion(redondeo2)
+            vercalificacion(redondeo2);
         }
 
             function vercalificacion(nota) {
@@ -41,7 +42,7 @@
 
             }
             if (nota<0 ||nota>10) {
-                return ("valor incorrecto")
+                return ("valor incorrecto");
             }
         }
 
