@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejemplo: objeto como parámetro</title>
+</head>
+<body>
+<script>
+
+    function volumencilindro(cilindro1) {
+      decimales=3
+      rd=cilindro1.radio;
+      h=cilindro1.altura;
+      let=volumen=0;
+      volumen=rd*rd*Math.PI*h;
+       redondeo2=Math.round(volumen* Math.pow(10, decimales)) / Math.pow(10, decimales);
+       console.log("volumen del cilindro: ",redondeo2)
+    }
+
+    
+    let cilindro = {
+        radio: 3.5,
+         altura: 7.2
+    };
+    volumencilindro(cilindro);
+</script>
+</body>
+</html>
