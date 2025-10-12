@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+        let rd=[3.4,6.6,9.3,-2,10];
+        function calcularAreaCirculov1(a) {
+  if (a < 0) {
+            throw new Error("El radio es negativo");
+            }
+            let area=0;
+            let perimetro=0;
+                  decimales=2;
+                for (let i = 0; i < a.length; i++) {
+                    let a = rd[i];
+                      area=Math.PI*a*a;
+            perimetro=2*Math.PI*a;
+            perimetroredondeo=Math.round(perimetro* Math.pow(10, decimales)) / Math.pow(10, decimales);
+            arearedondeo=Math.round(area* Math.pow(10, decimales)) / Math.pow(10, decimales);
+             console.log(arearedondeo , perimetroredondeo);
+                calcularAreaCirculov2(arearedondeo,perimetroredondeo);
+                }
+            }
+            function calcularAreaCirculov2(a,b) {
+                    let circulo = {   
+                    area: a,
+                    perimetro:b      
+                };
+                return console.log("area objeto : ",circulo.area , "perimetro objeto: ",circulo.perimetro);
+
+            }
+            calcularAreaCirculov1(rd);
+            //Parte 3: Analizar las ventajas e inconvenientes de las dos maneras de devolver datos (array vs objeto literal) 
+//¿Ves alguna ventaja a alguno de los métodos usados para devolver varios valores (uso de un array frente al de objeto literal)? Razona tu respuesta.
+//para mi el objeto literal es mas facil a la hora de devolver datos debido a que solo con el nombre del objeto.atributo puedo imprimir datos ,mientras que el array a la hora de impirmir muchos valores es mas util 
+//porque con los bucles puedo imprimir datos sin tenern que poner el indice del objeto cada vez que  imprimo  un objeto.
+
+    </script>
+</body>
+</html>
