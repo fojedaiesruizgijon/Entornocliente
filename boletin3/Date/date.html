@@ -7,7 +7,7 @@
 </head>
 <body>
     <script>
-        // Crear objeto Date con la fecha actual
+
         let fecha = new Date();
 
    
@@ -16,20 +16,55 @@
         let año = fecha.getFullYear();
         let mesNum = fecha.getMonth(); // Enero = 0
         let diaMes = fecha.getDate();
-        let diase = fecha.getDay(); 
-        let hora = fecha.getHours();
-        let minutos = fecha.getMinutes();
-        let segundos = fecha.getSeconds();
+        let diaSem = fecha.getDay(); 
+        let horaAct = fecha.getHours();
+        let minAct = fecha.getMinutes();
+        let segAct = fecha.getSeconds();
 
         console.log("Año:", año);
-        console.log("Mes (numérico):", mes);
-        console.log("Día del mes:", dia);
-        console.log("Día de la semana:", dia);
-        console.log("Hora:", hora);
-        console.log("Minutos:", min);
-        console.log("Segundos:", seg);
+        console.log("Mes (numérico):", mesNum);
+        console.log("Día del mes:", diaMes);
+        console.log("Día de la semana:", diaSem);
+        console.log("Hora:", horaAct);
+        console.log("Minutos:", minAct);
+        console.log("Segundos:", segAct);
 
         console.log("Enero en JavaScript corresponde al número 0.");
+        //Ejercicio2
+        let fecha2= new Date(1997,7,10);
+ //ejercicio2
+        function Ejercicio2(a) {
+          console.log(a.getMonth());
+             console.log(a.getDay());
+            console.log(a.getFullYear());
+
+        }
+          Ejercicio2(fecha2);
+          //Ejercicio3
+           function Ejercicio3(a) {
+        console.log(a.getMonth());
+        }
+
+          Ejercicio3(fecha2);
+          //Ejercicio4
+            function Ejercicio4(a) {
+          console.log(a.getDay());
+        }
+        
+        Ejercicio4(fecha2);
+            //Ejercicio5
+        Ejercicio5(fecha2);
+        function Ejercicio5(a) {
+            console.log(a.getTime());
+        }
+           Ejercicio5(fecha2);
+  
+        //Ejercicio8
+        function Ejercicio8(a) {
+            console.log(a.getHours());
+            console.log(a.getUTCHours());
+        }
+        Ejercicio8(fecha);
     </script>
 </body>
 </html>

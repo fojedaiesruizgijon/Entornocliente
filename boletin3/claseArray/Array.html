@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //Ejercicio1
+        let array2 = ['Plátanos', 'Naranjas', 'Pomelos', 'Fresas', 'Limones'];
+
+        for (let i = 0; i < array2.length; i++) {
+            console.log(array2[i]);
+        }
+
+        for (let indice in array2) {
+            console.log(array2[indice]);
+        }
+
+        for (let item of array2) {
+            console.log(item);
+        }
+
+        array2.forEach(function(item, index) {
+            console.log("item=" + item + " indice=" + index);
+        });
+
+        //Ejercicio2
+        let array = [5, 2, , 3, -2, 7, , 9];
+        let suma = 0;
+
+        for (let i = 0; i < array.length; i++) {
+            if (array[i] != undefined) {
+                suma += array[i];
+            }
+        }
+        console.log("Suma del array disperso:", suma);
+
+        //Ejercicio3
+           let array1 = ['Huelva', 'Sevilla', 'Córdoba'];
+
+        array1.push('Jaén', 'Granada');
+          console.log(array1);
+
+        let elementoExtraido = array1.pop();
+console.log(elementoExtraido);
+
+        console.log(array1);
+
+        //Ejercicio4
+        let array4 = ['Huelva', 'Sevilla', 'Córdoba'];
+
+     array4.unshift('Cádiz');
+           console.log("Array después de unshift:", array4);
+
+        let primerElemento = array4.shift();
+            console.log("Elemento extraído con shift:", primerElemento);
+
+        console.log("Array después de shift:", array4);
+        //Ejercicio5
+          let array5 = ['Huelva', 'Sevilla', 'Córdoba'];
+
+        delete array5[1];
+
+        console.log("Array después de delete:", array5);
+        console.log("Elemento en la posición 1:", array5[1]);
+        let array6 = ['Huelva', 'Sevilla', 'Córdoba', 'Jaén', 'Almería', 'Granada', 'Málaga', 'Cádiz'];
+
+            array6.sort();
+        console.log("Array ordenado alfabéticamente:", array6);
+
+            array6.reverse();
+            console.log("Array ordenado en orden inverso:", array6);
+        //Ejercicio7
+        let array7 = ['Plátanos', 'Naranjas', 'Pomelos', 'Fresas'];
+
+                array7.splice(1, 1); 
+     console.log("Array después de eliminar el segundo elemento:", array7);
+
+            array7.splice(1, 0, 'Limones'); 
+    console.log("Array después de insertar 'Limones':", array7);
+        //Ejercicio8
+        let array8 = ['Plátanos', 'Naranjas', 'Pomelos', 'Fresas'];
+
+        let tercerElemento = array8.slice(2, 3);
+            console.log("Elemento extraído con slice:", tercerElemento);
+
+        console.log("Array después de slice:", array8);
+        //Ejercicio9
+        let array9_1 = ['Plátanos', 'Naranjas', 'Pomelos'];
+                let array9_2 = ['Cebollas', 'Pepinos', 'Pimientos'];
+
+                let arrayConcatenado = array9_1.concat(array9_2);
+                console.log("Array concatenado:", arrayConcatenado);
+            //Ejercicio10
+            let array10 = ['Plátanos', 'Naranjas', 'Pomelos'];
+
+                        for (let i = 0; i < array10.length; i++) {
+                            console.log(array10[i]);
+                        }
+
+                        for (let indice in array10) {
+                            console.log(array10[indice]);
+                        }
+
+                        for (let item of array10) {
+                            console.log(item);
+                        }
+
+                        array10.forEach(function(item, index) {
+                            console.log("item=" + item + " indice=" + index);
+                        });
+                                            // Ejercicio 11
+                    let array11 = ['Plátanos', 'Naranjas', 'Pomelos', 'Fresas'];
+                            console.log("Posición de 'Pomelos':", array11.indexOf('Pomelos'));
+                    console.log("Posición de 'Sandía':", array11.indexOf('Sandía')); // devuelve -1
+
+                    // Ejercicio 12
+                    let array12 = ['Plátanos', 'Naranjas', 'Pomelos', 'Fresas'];
+                                console.log("¿Contiene 'Naranjas'?", array12.includes('Naranjas'));
+                              console.log("¿Contiene 'Peras'?", array12.includes('Peras'));
+
+                    // Ejercicio 13
+                             let array13 = [2, 12, 22, 30, 36];
+                            console.log("Todos son pares?", array13.every(num => num % 2 === 0));
+
+                          let array14 = [2, 12, 22, 7, 30, 36];
+                    console.log("Todos son pares?", array14.every(num => num % 2 === 0));
+
+                    // Ejercicio 14
+                        let array15 = [2, 9, 7, 5.4, 8];
+                                    let arrayCuadrado = array15.map(num => num * num);
+                                console.log("Array con cuadrados:", arrayCuadrado);
+
+                    // Ejercicio 15
+                                let array16 = [2, 7, 22, 3, 30, 17];
+                            let arrayImpares = array16.filter(num => num % 2 !== 0);
+                                console.log("Array con elementos impares:", arrayImpares);
+
+                    // Ejercicio 16
+                            let array17 = [2, 12, 7, 22, 3, 30, 17];
+                                let primerImpar = array17.find(num => num % 2 !== 0);
+                    console.log("Primer elemento impar:", primerImpar);
+
+                    // Ejercicio 17
+                            let array18 = ['Plátanos', 'Naranjas', 'Pomelos', 'Plátanos', 'Fresas'];
+                    console.log("Última posición de 'Plátanos':", array18.lastIndexOf('Plátanos'));
+
+
+
+    </script>
+</body>
+</html>
