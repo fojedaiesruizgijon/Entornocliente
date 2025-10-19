@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clase Date</title>
+</head>
+<body>
+    <script>
+        // Crear objeto Date con la fecha actual
+        let fecha = new Date();
+
+   
+        console.log("Fecha actual:", fecha);
+
+        let año = fecha.getFullYear();
+        let mesNum = fecha.getMonth(); // Enero = 0
+        let diaMes = fecha.getDate();
+        let diase = fecha.getDay(); 
+        let hora = fecha.getHours();
+        let minutos = fecha.getMinutes();
+        let segundos = fecha.getSeconds();
+
+        console.log("Año:", año);
+        console.log("Mes (numérico):", mes);
+        console.log("Día del mes:", dia);
+        console.log("Día de la semana:", dia);
+        console.log("Hora:", hora);
+        console.log("Minutos:", min);
+        console.log("Segundos:", seg);
+
+        console.log("Enero en JavaScript corresponde al número 0.");
+    </script>
+</body>
+</html>
