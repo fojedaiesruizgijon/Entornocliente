@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+// Clase String
+
+let nombreCompleto = "francisco javier ojeda cortes";
+let nombre = "Juan";
+let frase = "En un lugar de la Mancha de cuyo nombre no quiero acordarme";
+let texto = "Cebollas;Patatas;Pimientos;Tomates";
+let textoTrim = "   Don Quijote   ";
+let palabra = "JavaScript";
+
+function ejercicio1(str) {
+  try {
+    if (!str) throw "Error: la cadena está vacía";
+    console.log(str.length);
+  } catch (e) {
+    console.error(e);
+  }
+}
+
+function ejercicio2(str) {
+  try {
+    if (!str) throw "Error: la cadena está vacía";
+    for (let i = 0; i < str.length; i++) console.log(str.charAt(i));
+  } catch (e) {
+    console.error(e);
+  }
+}
+
+function ejercicio3(str) {
+  try {
+    if (!str) throw "Error: la cadena está vacía";
+    console.log(str.toUpperCase());
+    console.log(str.toLowerCase());
+  } catch (e) {
+    console.error(e);
+  }
+}
+
+function ejercicio4(str) {
+  try {
+    if (!str) throw "Error: la cadena está vacía";
+    console.log(str.length);
+    console.log(str.indexOf("Mancha"));
+    console.log(str.indexOf("Quijote"));
+    console.log(str.lastIndexOf("de"));
+  } catch (e) {
+    console.error(e);
+  }
+}
+
+function ejercicio5(str) {
+  try {
+    if (!str) throw "Error: la cadena está vacía";
+    console.log(str.slice(str.indexOf("lugar"), str.indexOf("lugar") + "lugar".length));
+  } catch (e) {
+    console.error(e);
+  }
+}
+
+function ejercicio6(str) {
+  try {
+    if (!str) throw "Error: la cadena está vacía";
+    console.log(str.includes("cuyo"));
+    console.log(str.includes("lugar", 12));
+  } catch (e) {
+    console.error(e);
+  }
+}
+
+function ejercicio7(str) {
+  try {
+    if (!str) throw "Error: la cadena está vacía";
+    console.log(str.endsWith("acordarme"));
+    console.log(str.endsWith("hidalgo"));
+  } catch (e) {
+    console.error(e);
+  }
+}
+
+function ejercicio8(str) {
+  try {
+    if (!str) throw "Error: la cadena está vacía";
+    console.log(str.replace("Mancha", "Andalucía"));
+  } catch (e) {
+    console.error(e);
+  }
+}
+
+function ejercicio9(str) {
+  try {
+    if (!str) throw "Error: la cadena está vacía";
+    console.log(str.split(";"));
+  } catch (e) {
+    console.error(e);
+  }
+}
+
+function ejercicio10(str) {
+  try {
+    if (!str) throw "Error: la cadena está vacía";
+    console.log(str.startsWith("En"));
+    console.log(str.startsWith("lugar"));
+  } catch (e) {
+    console.error(e);
+  }
+}
+
+function ejercicio11(str) {
+  try {
+    if (!str) throw "Error: la cadena está vacía";
+    let palabra1 = str.substr(str.indexOf("lugar"), "lugar".length);
+    let palabra2 = str.substring(str.indexOf("lugar"), str.indexOf("lugar") + "lugar".length);
+    console.log(palabra1);
+    console.log(palabra2);
+  } catch (e) {
+    console.error(e);
+  }
+}
+
+function ejercicio12(str) {
+  try {
+    if (!str) throw "Error: la cadena está vacía";
+    console.log(str.trim());
+  } catch (e) {
+    console.error(e);
+  }
+}
+
+function ejercicio13(str) {
+  try {
+    if (!str) throw "Error: la cadena está vacía";
+    let relleno = str.padEnd(15, "*");
+    let resultado = relleno.padStart(20, "#");
+    console.log(resultado);
+  } catch (e) {
+    console.error(e);
+  }
+}
+
+
+
+ejercicio1(nombreCompleto);
+ejercicio2(nombre);
+ejercicio3(nombre);
+ejercicio4(frase);
+ejercicio5(frase);
+ejercicio6(frase);
+ejercicio7(frase);
+ejercicio8(frase);
+ejercicio9(texto);
+ejercicio10(frase);
+ejercicio11(frase);
+ejercicio12(textoTrim);
+ejercicio13(palabra);
+
+
+    </script>
+</body>
+</html>
