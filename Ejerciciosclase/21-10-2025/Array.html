@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    
+    let datos = [5,7,3,2,10,2,1];
+        let filtrado=[];
+    datos.forEach(element => {
+        if (datos[i]%2 == 0) {
+               filtrado.push(datos[i]);
+        }
+    });
+                console.log(filtrado);
+                function  numeroImpar (num){
+                    return num%2!=0;
+                }
+                let datosfiltrados=datos.filter(
+
+                function (numeroImpar) {
+                    return num%2!=0;
+                }
+                )
+                let datos3=[5,7,2,10,2,1];
+                let filtrado4=[];
+                 filtrado4=datos3.filter(num=> num%2 !=0);
+                
+                console.log(filtrado4);
+                console.log(datos3.every(num => num%2!=0));
+                ["hola","adios", "pelota"].map(function(elto){return elto.toUpperCase()})
+                datos3.forEach((elto,indice)=>console.log(indice+ "=>"+elto));
+                let datos5=["hola","mandarina","casa"];
+                //for of
+                for(let elto  of datos5){
+                    console.log(elto);
+                }
+                //for in
+                  for(let elto  in datos5){
+                    console.log(elto);
+                }
+                ["mandarina","peras","sandia"].sort();
+            //para saber los duplicados
+            let arr=[3,2,5,6,7,3]
+                function hasduplicated(arr) {
+                    let eltos=[];
+                    for (let i = 0; i < arr.length; i++) {
+                        if (eltos.includes(arr[i])) return true;
+                            eltos.push(arr[i]);
+                        
+                    }
+                        return false;
+                    }
+                    //set para que no este duplicado 
+                 let sin = new Set();
+                    sin.add(7);
+                            sin.add(8);
+                                sin.add(7); 
+
+                        console.log(sin);
+                        let datos6=Array.from(sin);
+                        datos6.push(8);
+                        console.log(datos6);
+
+
+    </script>
+</body>
+</html>
+
