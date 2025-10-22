@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clase Math</title>
+</head>
+<body>
+    <script>
+    
+
+let numerosAbs = [3, -5, 8, -3.5, 12.2];
+let grados30 = 30;
+let grados45 = 45;
+let radianes = Math.PI / 3;
+let baseE = 3;
+let log10 = 12.5;
+let n = 15.7;
+let numero = 128.12;
+let numerosRedondear = [2.7, -2.7, 12.4, 12.5, -0.6, 0.6];
+let numerosMinMax = [-8, 7, 12, 5, -12, 5];
+let dado = [1,6];
+let aleatorio = [26,79];
+let piDecimales = [2,3,4,5];
+
+function ejercicio1(array) {
+    for (let i = 0; i < array.length; i++) {
+        console.log(Math.abs(array[i]));
+    }
+}
+
+
+function ejercicioEuler() {
+    console.log(Math.E);
+}
+
+function grados2radianes(grados) {
+    return grados / 180 * Math.PI;
+}
+
+
+function ejercicioCos(grados) {
+    let rad = grados2radianes(grados);
+    console.log(Math.cos(rad));
+}
+
+
+function ejercicioSin(grados) {
+    let rad = grados2radianes(grados);
+    console.log(Math.sin(rad));
+}
+
+function ejerciciocosrad(rad) {
+    console.log(Math.cos(rad));
+}
+
+
+function ejercicioExp(exponente) {
+    console.log(Math.exp(exponente));
+}
+
+function ejercicioLog10(valor) {
+    console.log(Math.log10(valor));
+}
+
+
+function ejercicioLn(valor) {
+    console.log(Math.log(valor));
+}
+
+function ejercicioNumero(valor) {
+    console.log(valor);
+}
+
+
+function ejercicioRound(array) {
+    for (let i = 0; i < array.length; i++) {
+        console.log(Math.round(array[i]));
+    }
+}
+
+
+function ejercicioCeil(array) {
+    for (let i = 0; i < array.length; i++) {
+        console.log(Math.ceil(array[i]));
+    }
+}
+
+function ejercicioFloor(array) {
+    for (let i = 0; i < array.length; i++) {
+        console.log(Math.floor(array[i]));
+    }
+}
+
+
+function ejercicioMin(array) {
+    let min = array[0];
+    for (let i = 1; i < array.length; i++) {
+        if (array[i] < min) min = array[i];
+    }
+    console.log(min);
+}
+
+
+        function ejercicioMax(array) {
+    let max = array[0];
+    for (let i = 1; i < array.length; i++) {
+                if (array[i] > max) max = array[i];
+    }
+         console.log(max);
+}
+
+function ejercicioDado(rango) {
+     let resultado = Math.floor(Math.random() * (rango[1] - rango[0] + 1)) + rango[0];
+                console.log(resultado);
+}
+
+function ejercicioPI(decimales) {
+    function redondearDecimales(numero, dec) {
+
+
+
+
+                 return Math.round(numero * Math.pow(10, dec)) / Math.pow(10, dec);
+            }
+            for (let i = 0; i < decimales.length; i++) {
+                      console.log(redondearDecimales(Math.PI, decimales[i]));
+    }
+}
+
+// Ejecución
+ejercicio1(numerosAbs);
+ejercicioEuler();
+ejercicioCos(grados30);
+ejercicioSin(grados45);
+ejerciciocosrad(radianes);
+ejercicioExp(baseE);
+ejercicioLog10(log10);
+ejercicioLn(n);
+ejercicioNumero(numero);
+ejercicioRound(numerosRedondear);
+ejercicioCeil(numerosRedondear);
+ejercicioFloor(numerosRedondear);
+ejercicioMin(numerosMinMax);
+ejercicioMax(numerosMinMax);
+ejercicioDado(dado);
+ejercicioDado(aleatorio);
+ejercicioPI(piDecimales);
+// he hecho los ejercicios sin funciones porque no me lo pedian los de srting como ya te lo he hecho pues te lo dejo asi.
+    </script>
+</body>
+</html>
