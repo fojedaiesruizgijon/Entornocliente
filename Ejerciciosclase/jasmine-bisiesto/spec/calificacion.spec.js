@@ -32,6 +32,20 @@ const datos = [
         // En el caso de toThrowError, hay que meter la función a probar en una función anónima.
         expect( () => { verCalificacion("hola") }).toThrowError();
     });
+      it("Deberoa devolver un string para cualquier valor entre -1 y 11 con saltos de 0.5", () => {
+            for (let n = -1; n <= 11; n += 0.5) {
+                expect(typeof verCalificacion(n)).toBe("string");
+            }
+        });
+
+
+
+     datos.forEach((item) => {
+        it (`la nota ${item.nota} ${item.valorEsperado}  .`, function () {
+            // espero que.... sea igual a.....
+            expect(verCalificacion(item.nota)).toEqual(item.valorEsperado);
+        });
+    })
     })
     
 });
