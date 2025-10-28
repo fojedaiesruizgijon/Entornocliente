@@ -17,6 +17,16 @@
                 return `${this.nombre}de ${this.edad}años`
             }
         }
+         const persona2={
+            nombre:"maria",
+            edad: 39,
+            cumpliraños:function(){
+                this.edad++;
+            } ,
+            toString:function(){
+                return `${this.nombre}de ${this.edad}años`
+            }
+        }
         console.log(persona1.toString());
         console.log("invocamos al metodos cumpliraños()");
         console.log(persona1.cumpliraños());
@@ -24,6 +34,7 @@
         console.log("cambiamos de propiedad de nombre a ana");
         persona1.nombre="ana";
         console.log(persona1.toString());
+          console.log(persona2.toString());
     </script>
 </body>
 </html>

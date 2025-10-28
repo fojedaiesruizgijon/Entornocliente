@@ -9,10 +9,10 @@
     <script>
         class Persona{
             //propiedades pseudo privados internas 
-            _nombre;
-            _edad;
+            nombre;
+            edad;
             constructor(nombre,edad){
-                this._nombre=nombre;
+                this.nombre=nombre;
                 this.edad=edad;
 
             }
@@ -22,6 +22,16 @@
             toString(){
                 return `${this.nombre}de ${this.edad} años `
             }
+            get edad(){
+                return this.edad;
+            }
+            set edad(nuevaedad){
+                this.nuevaedad
+                if (nuevaedad<0)throw new Error("la edad debe ser un valor positivo");
+                 {
+                   return this.nuevaedad;
+                }
+            }
         }
         const persona1=new Persona("juan",23);
         const persona2=new Persona("Maria ",32);
@@ -29,6 +39,8 @@
         console.log(persona2.toString());
         persona1.cumpliraños();
         console.log(persona1.toString());
+        persona1.edad=34;
+        persona2.edad=-45;
     </script>
 </body>
 </html>
