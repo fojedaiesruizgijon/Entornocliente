@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const persona1={
+            nombre:"juan",
+            edad: 26,
+            cumpliraños:function(){
+                this.edad++;
+            } ,
+            toString:function(){
+                return `${this.nombre}de ${this.edad}años`
+            }
+        }
+        console.log(persona1.toString());
+        console.log("invocamos al metodos cumpliraños()");
+        console.log(persona1.cumpliraños());
+        console.log(persona1.toString());
+        console.log("cambiamos de propiedad de nombre a ana");
+        persona1.nombre="ana";
+        console.log(persona1.toString());
+    </script>
+</body>
+</html>

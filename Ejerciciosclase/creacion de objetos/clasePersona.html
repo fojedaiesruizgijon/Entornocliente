@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Persona{
+            //propiedades pseudo privados internas 
+            _nombre;
+            _edad;
+            constructor(nombre,edad){
+                this._nombre=nombre;
+                this.edad=edad;
+
+            }
+            cumpliraños(){
+                this.edad++;
+            }
+            toString(){
+                return `${this.nombre}de ${this.edad} años `
+            }
+        }
+        const persona1=new Persona("juan",23);
+        const persona2=new Persona("Maria ",32);
+        console.log(persona1.toString());
+        console.log(persona2.toString());
+        persona1.cumpliraños();
+        console.log(persona1.toString());
+    </script>
+</body>
+</html>
