@@ -7,68 +7,57 @@
 </head>
 <body>
     <script>
-        class Persona{
-            //propiedades pseudo privados internas 
-            nombre;
-            edad;
-            constructor(nombre,edad){
-                this.nombre=nombre;
-                this.edad=edad;
-
-            }
-            cumpliraños(){
-                this.edad++;
-            }
-            toString(){
-                return `${this.nombre}de ${this.edad} años `
-            }
-            get edad(){
-                return this.edad;
-            }
-            static cromosomas=46;
-        //metodo estatico
-            static compararpersonas(p1,p2){
-                if (p1.edad>=p2.edad) {
-                    return p1;
-                }
-                else {
-                    return p2;
-                }
-            }
-            set edad(nuevaedad){
-                this.nuevaedad
-                if (nuevaedad<0)throw new Error("la edad debe ser un valor positivo");
-                 {
-                   return this.nuevaedad;
-                }
-            }
-        }
-        const persona1=new Persona("juan",23);
-        const persona2=new Persona("Maria ",32);
-        const personaconmasedad=Persona.compararpersonas(persona1,persona2);
-        console.log(personaconmasedad);
-        console.log(Persona.cromosomas);
-        const Empleado1=new Empleado("Ricardo","Perez",36,1999);
-              const Empleado2=new Empleado("Roberto","Carce",36,1999);
-              console.log(Empleado1.toString())
-        //console.log(persona1.toString());
-        //console.log(persona2.toString());
-       // persona1.cumpliraños();
-       // console.log(persona1.toString());
-       // persona1.edad=34;
-       // persona2.edad=-45;
-       class Empleado extends Persona {
-        
-        _sueldos;
-        constructor(nombre,apellidos,edad,sueldos){
-        super(nombre,apellidos,edad);
-        this._sueldos=sueldos
-        
-       }
-       toString(){
-        return super.toString()+"y su sueldo"+this._sueldos;
-       }
+      class Persona {
+    nombre;
+    edad;
+    constructor(nombre, edad) {
+        this.nombre = nombre;
+        this.edad = edad;
     }
+    cumpliraños() {
+        this.edad++;
+    }
+    toString() {
+        return `${this.nombre} de ${this.edad} años`;
+    }
+    get edad() {
+        return this._edad;
+    }
+    set edad(nuevaedad) {
+        if (nuevaedad < 0) throw new Error("la edad debe ser un valor positivo");
+        this._edad = nuevaedad;
+    }
+
+    static cromosomas = 46;
+    static compararpersonas(p1, p2) {
+        return p1.edad >= p2.edad ? p1 : p2;
+    }
+}
+
+// 🟩 Define la clase Empleado ANTES de usarla
+class Empleado extends Persona {
+    _sueldos;
+    constructor(nombre, apellidos, edad, sueldos) {
+        super(nombre, edad);
+        this.apellidos = apellidos;
+        this._sueldos = sueldos;
+    }
+    toString() {
+        return `${super.toString()} y su sueldo es ${this._sueldos}`;
+    }
+}
+
+// Ahora sí, puedes crear instancias:
+const persona1 = new Persona("Juan", 23);
+const persona2 = new Persona("María", 32);
+const personaconmasedad = Persona.compararpersonas(persona1, persona2);
+console.log(personaconmasedad);
+console.log(Persona.cromosomas);
+
+const Empleado1 = new Empleado("Ricardo", "Pérez", 36, 1999);
+const Empleado2 = new Empleado("Roberto", "Carce", 36, 1999);
+console.log(Empleado1.toString());
+
     </script>
 </body>
 </html>
