@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+
+
+       div {
+
+     height: 200px;
+     width: 200px;
+     background-color: antiquewhite;
+
+        }
+    </style>
+    <div id="zona">
+
+    </div>
+    <label for="radio1"></label>
+    <input type="button" onclick="crearParrafo()" value="crearParrafo">
+    <script>
+        let contador=1
+        function crearParrafo() {
+            let parrafo=document.createElement("p");
+            let nodoTexto=document.createTextNode(`Parrafo${contador}`);
+            parrafo.appendChild(nodoTexto);
+            parrafo.style.color="red";
+            parrafo.style.fontSize="2em"
+            let zona=document.getElementById("zona");
+            zona.appendChild(parrafo);
+            contador++;
+
+        }
+    </script>
+</body>
+</html>

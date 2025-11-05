@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <input type="button" onclick="cambiarColorParrafosUsando()" value="Usar Elements">
+    <input type="button" onclick="cambiarColorParrafosUsandoNodes()" value="Usar Nodes">
+    <div id="contenedor">
+    <p>primer parrafo</p><!--wfpèwf`f,wepf,--><p>sefundoparrafo</p><p>tercero parrafo</p>
+    </div>
+    <script>
+function cambiarColorParrafosUsando() {
+    let contenedor=document.querySelector("#contenedor");
+    let parrafos=contenedor.children;
+    for (let i=0;i<parrafos.length;i++){
+        parrafos[i].style.color="red";
+    }
+
+}
+    function cambiarColorParrafosUsandoNodes(){
+        let contenedor=document.querySelector("#contenedor");
+        let nodos =contenedor.childNodes;
+        for(i=0;i<nodos.length;i++){
+            if (nodos[i].nodeType==Node.ELEMENT_NODE) {
+                nodos[i].style.color="magenta";
+
+            } else {
+                console.log(nodos[i].nodeType);
+                console.log(nodos[i]);
+            }
+        }
+    }
+    </script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+     <script>
+        addEventListener("load",iniciar)// esto es para que carge automaticamente captura el evento onload para llamar  a una funcion cuando se carga la pagina web 
+        let parrafo3=document.querySelectorAll("p")[2];
+        let parrafoDentroDiv=parrafo3.parentElement.children;
+        for(let i=0;i<parrafoDentroDiv.length;i++){
+            parrafoDentroDiv[i].style.color="red";
+        }
+    </script>
+    <p>primer parrafo</p>
+    <div>
+        <p>parrafo1</p>
+        <p>parrafo2</p>
+        <p>parrrafo3</p>
+
+
+
+    </div>
+    <p>ultimo parrafo </p>
+
+</body>
+</html>
