@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Añadir párrafos</title>
+</head>
+<body>
+  <h2>Añadir párrafos</h2>
+  <div id="zona"></div>
+  <input type="text" id="colorInput" placeholder="Escribe un color (red, blue, etc)">
+
+  <input type="button" onclick="crearParrafo()" value="Añadir mediante Element">
+  <script>
+    var contador = 1;
+
+    
+    function crearParrafo() {
+      color = document.getElementById('colorInput').value;
+      var zona = document.getElementById('zona');
+      var parrafo = document.createElement('p');
+      parrafo.innerHTML = "Párrafo  " + contador;
+      parrafo.style.color = color;
+      zona.appendChild(parrafo);
+      contador++;
+    }
+
+  </script>
+</body>
+</html>
