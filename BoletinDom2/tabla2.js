@@ -32,7 +32,7 @@
             const fila = document.createElement('tr');
             fila.innerHTML = codigoFila;
             document.querySelector('thead').appendChild(fila);
-                let codigoFila2 = "";  
+              
 
             datos.forEach(element => {
                 let viento1=element.viento;
