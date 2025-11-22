@@ -32,7 +32,7 @@ function borrar(boton){
 }
 function copiarEncima(boton){
 	var filaActual=boton.parentElement.parentElement;
-	var filaACopiar=boton.parentElement.parentElement.cloneNode(true);
+	var filaACopiar=boton.parentElement.parentElement.cloneNode(true);  
 	document.getElementById('tabla').insertBefore(filaACopiar,filaActual);
 }
 </script>

@@ -1,0 +1,24 @@
+
+<html>
+
+<head>
+    <title>Ejemplo de JavaScript</title>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+<div id="cuadrado1" style="background:gray;width:200px;height:200px">
+    <a href="outlook" onMouseOver="pintar('#f00')" onMouseOut="pintar('#000')">outlook</a> -
+    <a href="yahoo" onMouseOver="pintar('#0f0')" onMouseOut="pintar('#000')">yahoo</a> -
+    <a href="gmail" onMouseOver="pintar('#00f')" onMouseOut="pintar('#000')">GMail</a>
+</div>
+
+    <script>
+        function pintar(col) {
+            document.getElementById('cuadrado1').style.backgroundColor = col;
+        }
+    </script>
+
+</body>
+
+</html>
