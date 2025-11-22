@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Ejemplo de JavaScript</title>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+
+
+ 
+    <div style="width:200px;height:200px;background:#ff5500" id="recuadro1">
+    </div>
+
+    <script>
+        document.getElementById('recuadro1').addEventListener('mousedown', presion1);
+        document.getElementById('recuadro1').addEventListener('mouseup', presion2);
+
+        function presion1() {
+            let cuadro =document.getElementById('recuadro1');
+            cuadro.style.backgroundColor='yellow';  
+        }
+
+        function presion2() {
+           let cuadro1= document.getElementById('recuadro1');
+           cuadro1.style.backgroundColor = 'red';
+        }
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Ejemplo de JavaScript</title>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+
+   <h1>Titulo principal</h1>
+
+    <script>
+        document.querySelector('h1').addEventListener('mouseover', entrada);
+        document.querySelector('h1').addEventListener('mouseout', salida);
+
+        function entrada() {
+            document.querySelector('h1').style.backgroundColor = 'yellow';
+            document.querySelector('h1').style.color = 'red';
+        }
+
+        function salida() {
+            document.querySelector('h1').style.backgroundColor = 'white';
+               document.querySelector('h1').style.color= 'black';
+        }
+    </script>
+
+</body>
+
+</html>
