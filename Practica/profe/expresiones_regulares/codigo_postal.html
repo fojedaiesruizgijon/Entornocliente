@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function validaCP(str){
+            let patron=/^\s*\d{5}\s*$/;
+            return patron.test(str);
+        }
+
+        function extraeCPs(cadena){
+            let patron=/\b\d{5}\b/g; // Usamos \b para indicar que el CP puede tener delante o detrás un espacio, coma, principio o fin del string, etc. Con g indicamos global
+            return cadena.match(patron);
+        }
+
+        function sustituyeCPs(cadena){
+            let patron=/\b\d{5}\b/g; // Usamos \b para indicar que el CP puede tener delante o detrás un espacio, coma, principio o fin del string, etc. Con g indicamos global
+            return cadena.replace(patron,"C.P.");
+        }
+
+        function testeo(){
+            // Testeo de función validaCP
+            let eltos=["41710","  41710   ","41710 41720", "417105","4170","a41710","41710a"];
+            for(let i=0; i< eltos.length;i++){
+                console.log(`Elto ${eltos[i]} es CP => ${validaCP(eltos[i])}`);
+            }
+            
+            // Testeo de función extraeCPs
+            let cadena1="41710 es el CP de Utrera. Los Palacios tiene 41720 y Alcalá de Guadaira el 41500";
+            console.log(`Los CPs en la cadena ${cadena1} son: [${extraeCPs(cadena1)}]`);
+
+            //Testeo de función sustituyeCPs
+            let cadena2="41710 es el CP de Utrera. Los Palacios tiene 41720 y Alcalá de Guadaira el 41500";
+            console.log(`La cadena ${cadena2} tras la sustitución se convierte en cadena: ${sustituyeCPs(cadena2)}`);
+        }
+
+        addEventListener('load',testeo);
+    </script>
+    <h1>Expresiones regulares (ver consola depuración)</h1>
+</body>
+</html>

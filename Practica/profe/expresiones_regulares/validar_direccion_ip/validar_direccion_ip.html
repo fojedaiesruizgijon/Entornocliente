@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Validar dirección IP</h1>
+    <hr>
+    <label for="dir_ip">Dir.IP</label><input type="text" name="dir_ip" id="dir_ip">
+    <input type="button" id="btn_comprobar" value="Comprobar">
+    <hr>
+    <div id="resultado"></div>
+
+    <script src="src/validacion_direccion_ip.js"></script>
+    <script>
+        function iniciar(){
+            document.querySelector("#btn_comprobar").addEventListener('click',comprobar);
+        }
+
+        function comprobar(){
+            let ipstr=document.getElementById('dir_ip').value.trim();
+            let validacion=validaDireccionIP(ipstr);
+            document.querySelector("#resultado").innerHTML=`La IP ${ipstr} ${(validacion?"sí":"no")} es válida`;
+        }
+        addEventListener('load',iniciar);
+    </script>
+</body>
+</html>

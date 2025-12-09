@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function terminaVocalAcentuada(str){
+            let patron=/[áéíóú]$/gi;
+            return patron.test(str);
+        }
+
+        function testeo(){
+            let eltos=["acá", "ACNÉ", "Aquí", "BAMBÚ", "samba", "ORO"];
+            for(let i=0; i< eltos.length;i++){
+                console.log(`La palabra ${eltos[i]} termina en vocal acentuada => ${terminaVocalAcentuada(eltos[i])}`);
+            }
+        }
+
+        addEventListener('load',testeo);
+    </script>
+    <h1>Expr. regulares (ver consola depuración)</h1>
+</body>
+</html>

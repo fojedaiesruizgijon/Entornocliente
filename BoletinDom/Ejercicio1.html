@@ -16,8 +16,8 @@
 
     
     function crearParrafo() {
-      color = document.getElementById('colorInput').value;
-      var zona = document.getElementById('zona');
+      color = document.querySelector('#colorInput').value;
+      var zona = document.querySelector('#zona');
       var parrafo = document.createElement('p');
       parrafo.innerHTML = "Párrafo  " + contador;
       parrafo.style.color = color;

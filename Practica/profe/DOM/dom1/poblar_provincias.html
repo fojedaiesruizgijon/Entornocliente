@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <label for="listaProvincias">Provincias:</label>
+    <select id="listaProvincias" onchange="cambiarProvincia()"></select>
+    <script>
+        function poblarProvincias() {
+            let listaProvincias = document.getElementById('listaProvincias');
+            const provincias = [
+                { nombre: "Huelva", id: 1 },
+                { nombre: "Sevilla", id: 2 },
+                { nombre: "Córdoba", id: 3 },
+                { nombre: "Jaén", id: 4 },
+                { nombre: "Almería", id: 5 },
+                { nombre: "Granada", id: 6 },
+                { nombre: "Málaga", id: 7 },
+                { nombre: "Cádiz", id: 8 }
+            ];
+
+            for (var i = 0; i < provincias.length; i++) {
+                var elto = document.createElement('option');
+                elto.value = provincias[i].id;
+                elto.innerHTML = provincias[i].nombre;
+                listaProvincias.appendChild(elto);
+            }
+        }
+
+        function cambiarProvincia() {
+            alert("Se ha elegido la provincia: " + document.getElementById('listaProvincias').value);
+        }
+    </script>
+    <input type="button" onclick="poblarProvincias();" value="Poblar">
+</body>
+
+</html>

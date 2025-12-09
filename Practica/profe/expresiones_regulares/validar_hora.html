@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function validaHora(str){
+            let patron=/^([01]\d|2[0-3]):([0-5]\d):([0-5]\d)$/;
+            return patron.test(str);
+        }
+
+        function testeo(){
+            let eltos=["23:15:05","28:10:20","5:12:88","02:59:01","00:07:04"];
+            for (let i=0; i< eltos.length; i++){
+                console.log(`El elto ${eltos[i]} es una hora válida => ${validaHora(eltos[i])}`);
+            }
+        }
+
+        addEventListener('load',testeo);
+    </script>
+    <h1>Expr. regulares (ver consola de depuración)</h1>
+</body>
+</html>

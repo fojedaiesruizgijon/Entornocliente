@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function validaNumeroEntero(str){
+            let patron=/^[\+\-]?[0-9]+$/;
+            return patron.test(str);
+        }
+
+        function testeo(){
+            let eltos=["123", "-25", "+4882","a123","123b","123,5","+42,5","-3,7"];
+            for(let i=0;i<eltos.length;i++){
+                console.log(`El elto ${eltos[i]} es un número entero válido => ${validaNumeroEntero(eltos[i])}`);
+            }
+        }
+        addEventListener('load',testeo);
+    </script>
+    <h1>Expr. regulares (ver consola depuración)</h1>
+</body>
+</html>

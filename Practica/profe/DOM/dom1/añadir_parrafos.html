@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Añadir párrafos de colores de manera dinámica</h1>
+    <div id="zona"></div>
+    <script>
+        let contador = 1;
+        function añadirParrafoElement() {
+            let zona = document.getElementById('zona');
+            let colorParrafo = document.getElementById('txtColor').value;
+            let parrafo = document.createElement('p');
+            let nodoTexto = document.createTextNode("Párrafo número " + contador);
+            parrafo.appendChild(nodoTexto);
+            parrafo.style.color=colorParrafo;
+            zona.appendChild(parrafo);
+            contador++;
+        }
+
+        function añadirParrafoHTML() {
+            let zona = document.getElementById('zona');
+            let colorParrafo = document.getElementById('txtColor').value;
+            let parrafoHTML= `<p style="color:${colorParrafo}">Párrafo número ${contador}`
+            zona.insertAdjacentHTML("beforeend",parrafoHTML);
+            contador++;
+        }
+    </script>
+    <br>
+    <label>Color del párrafo</label><input type="text" id="txtColor" value="blue" /></br>
+    <input type="button" onclick="añadirParrafoElement();" value="Añadir mediante Element">
+    <input type="button" onclick="añadirParrafoHTML();" value="Añadir mediante HTML" />
+</body>
+
+</html>

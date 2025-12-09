@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function validaDNI(str){
+            let patron=/^\d{8}-?[trwagmyfpdxbnjzsqvhlcke]$/i;
+            return patron.test(str);
+        }
+
+        function testeo(){
+            let eltos=["52678805T","52678805t","52678805-T","47722T", "52678805Ñ", "52678804i"];
+            for(let i=0;i<eltos.length;i++){
+                console.log(`El elto ${eltos[i]} es un DNI válido => ${validaDNI(eltos[i])}`);
+            }
+        }
+
+        addEventListener('load',testeo);
+    </script>
+    <h1>Expr. regulares (ver consola de depuración)</h1>
+</body>
+</html>

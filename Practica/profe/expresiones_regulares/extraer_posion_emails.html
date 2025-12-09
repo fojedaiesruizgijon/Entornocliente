@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+
+        function extraePosicionesEmails(texto){
+            let patron=/\b\w+@([a-zA-Z_]+\.)+[a-zA-Z]{2,6}\b/g;
+            var posiciones=[];
+            var obj=null;
+            while((obj=patron.exec(texto))!=null){
+                posiciones.push(obj.index);
+
+            }
+            return posiciones;
+        }
+
+        function testeo(){
+            let cadena="jsoldado@iesruizgijon.com envió un email a dleyva@gmail.com con copia a fjmatias@hotmail.com";
+            console.log(`Las posiciones de los emails en la cadena "${cadena}" son [${extraePosicionesEmails(cadena)}]`);
+        }
+
+        addEventListener('load',testeo);
+
+    </script>
+    <h1>Expr. regulares (ver consola depuración)</h1>
+</body>
+</html>
