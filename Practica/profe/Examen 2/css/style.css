@@ -1,0 +1,516 @@
+/*
+    # Sitio web AppReservas
+    ## Requisitos 
+    - Realiza la landing page de la aplicación para reservas en restaurantes "AppReservas".
+    - Utiliza CSS Grid para la maquetación de los elementos principales y Flexbox para alineaciones, direcciones de los elementos, etc.
+    - La página tiene un diseño responsive con breakpoints en 768px y 1024px.
+    - Importante: claridad, estructuración del código y comentarios.
+    - Usa BEM para el nombrado de clases y custom properties (variables).
+    - Se puede consultar toda la documentación offline que se necesite.
+    - No está permitido el uso de IA durante el desarrollo del ejercicio (chatgpt, Github Copilot, etc.)
+
+    ## Guía de estilos
+    ### Tipografía
+    - Tipos de letras: 
+    - Principal (párrafos y enlaces): *Roboto 400, 700 y 900* 
+    - Titulares: *Robot Condensed 700*
+
+    - Tamaño textos (si se establece un tamaño de fuente en el elemento raíz de la página de 62.5%):
+        - h1: 4.2rem 
+        - h2: 3.8rem
+        - h3: 3.4rem
+        - p: 2rem
+        - a: 2rem
+    
+    ### Colores
+    - Principal: #3f2690
+    - Gris: #7f7e7e
+    - Gris claro: #eceeef
+    - Botón formulario:  #222729
+    - Negro: #000000
+    - Blanco: #ffffff
+
+    ### Contenedor
+    - Anchura máxima: 1200px
+
+    ### Otras medidas
+    - Anchura logo: 30rem
+    - Anchura máxima imagen hero móvil y tablet: 40rem
+*/
+
+/*! ESTILOS GENERALES    */
+:root {
+    --principal: #3f2690;
+    --gris: #7f7e7e;
+    --gris-claro: #eceeef;
+    --boton-formulario: #222729;
+    --negro: #000;
+    --blanco: #fff;
+}
+
+html { box-sizing: border-box; font-size: 62.5%; }
+*, *::before, *::after { box-sizing: inherit; margin: 0; padding: 0; }
+@font-face { font-family: 'Roboto'; src: url('../assets/fonts/Roboto-Regular.ttf'); }
+@font-face { font-family: 'Roboto Condensed'; src: url('../assets/fonts/RobotoCondensed-Bold.ttf'); }
+h1 { font-size: 4.2rem; font-family: 'Roboto Condensed', sans-serif; font-weight: 700; }
+h2 { font-size: 3.8rem; font-family: 'Roboto Condensed', sans-serif; font-weight: 700; }
+h3 { font-size: 3.4rem; font-family: 'Roboto Condensed', sans-serif; font-weight: 700; }
+p, a { font-size: 2rem; font-family: 'Roboto', sans-serif; }
+
+body {
+    font-family: 'Raleway', sans-serif;
+    font-size: 1.6rem;
+    line-height: 2;
+}
+
+@media screen and (min-width: 768px) {
+    h1 { font-size: 5rem; }
+    h2 { font-size: 4rem; }
+    h3 { font-size: 3rem; }
+}
+
+/** Container */
+.container {
+    max-width: 120rem;
+    margin: 0 auto;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+/*! HEADER */
+.header {
+    padding: 1rem;
+}
+
+.header__figure {
+    width: 40rem;
+    height: auto;
+    margin: 0 auto;
+    margin-bottom: 5rem;
+}
+
+.header__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.header__item {
+    text-decoration: none;
+    color: var(--negro);
+}
+
+.header__item:last-of-type {
+    padding: 0.5rem 1.5rem;
+    border-radius: 1rem;
+    color: var(--blanco);
+    background-color: var(--principal);
+}
+
+.header__nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 5rem;
+    font-weight: 700;
+}
+
+@media screen and (max-width: 768px) { 
+    .header__item:last-of-type {
+        text-align: center;
+        width: 100%;
+    }
+}
+
+@media screen and (min-width: 768px) { 
+    .header {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 2rem;
+    }
+    
+    .header__figure {
+        width: 30rem;
+        height: auto;
+        margin: 0;
+    }
+    
+    .header__nav {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 1.5rem;
+        margin: 0;
+    }
+}
+
+/*! FORMULARIO */
+.formulario {
+    padding: 1rem;
+}
+
+.formulario__principal {
+    background-color: var(--principal);
+    color: var(--blanco);
+    padding: 4rem;
+    border-radius: 1rem;
+}
+
+.formulario__titulo {
+    text-align: center;
+    line-height: 1;
+    margin-bottom: 2rem;
+}
+
+.formulario__formulario {
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.formulario__item {
+    display: grid;
+    grid-template-rows: repeat(2, 1fr);
+}
+
+.formulario__label {
+    text-transform: uppercase;
+    font-weight: 400;
+}
+
+.formulario__input {
+    padding: 1.5rem;
+}
+
+.formulario__submit {
+    background-color: var(--boton-formulario);
+    color: var(--blanco);
+}
+
+.formulario__figure {
+    margin-top: 5rem;
+}
+
+@media screen and (min-width: 768px) { 
+    .formulario {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        margin-top: 5rem;
+        gap: 5rem;
+    }
+
+    .formulario__figure {
+        margin-top: 0;
+    }
+}
+
+/*! PASOS */
+.pasos {
+    background-color: var(--principal);
+}
+
+.pasos__ola {
+    margin-top: 5rem;
+    margin-bottom: -1px;
+    width: 100%;
+    display: block;
+}
+
+.pasos__titulo, .pasos__parrafo {
+    text-align: center;
+    color: var(--blanco);
+}
+
+@media screen and (min-width: 768px) { 
+    .pasos__container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/*! OPINIONES */
+.opiniones {
+    margin-top: 5rem;
+    padding: 1rem;
+}
+
+.opiniones__titulo {
+    text-align: center;
+}
+
+.opiniones__item {
+    background-color: var(--gris);
+    margin-bottom: 2rem;
+    border-radius: 1rem;
+    padding: 2rem;
+}
+
+.opiniones__perfil {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(10rem, 20rem));
+    grid-template-rows: repeat(2, 1fr);
+}
+
+.opiniones__figure-pfp {
+    grid-area: 1 / 1 / 3 / 2;
+    width: 60%;
+    height: 60%;
+}
+
+.opiniones__imagen-pfp {
+    border-radius: 10rem;
+}
+
+.opiniones__parrafo:first-of-type {
+    grid-area: 1 / 2 / 2 / 3;
+    align-self: self-end;
+    font-weight: 400;
+}
+
+.opiniones__figure-review {
+    grid-area: 2 / 2 / 3 / 3;
+}
+
+.opiniones__texto {
+    display: grid;
+    grid-template-columns: 1fr 9fr;
+}
+
+.opiniones__resaltar {
+    color: var(--gris-claro);
+}
+
+.opiniones__parrafo {
+    color: white;
+}
+
+.opiniones__resaltar {
+    font-size: 600%;
+}
+
+@media screen and (min-width: 768px) { 
+    .opiniones__perfil {
+        grid-template-columns: minmax(10rem, 15rem) 20rem;
+    }
+
+    .opiniones__figure-pfp {
+        width: 60%;
+        height: 60%;
+    }
+
+    .opiniones__container {
+        display: grid;
+        grid: repeat(2, 1fr) / repeat(5, 1fr);
+        gap: 2rem;
+    }
+
+    .opiniones__item:nth-child(1) {
+        grid-area: 1 / 1 / 2 / 4;
+    }
+
+    .opiniones__item:nth-child(2) {
+        grid-area: 1 / 4 / 2 / 5;
+    }
+
+    .opiniones__item:nth-child(3) {
+        grid-area: 1 / 5 / 3 / -1;
+    }
+
+    .opiniones__item:nth-child(4) {
+        grid-area: 2 / 1 / -1 / 3;
+    }
+
+    .opiniones__item:nth-child(5) {
+        grid-area: 2 / 3 / 3 / 5;
+    }
+}
+
+/*! FAVORITOS */
+.favoritos {
+    margin-top: 5rem;
+    background-color: var(--gris-claro);
+    padding: 1rem;
+}
+
+.favoritos__titulo {
+    text-align: center;
+}
+
+.favoritos__item {
+    background-color: var(--blanco);
+    text-align: center;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 0 1rem 0 var(--negro);
+}
+
+.favoritos__figure-logo {
+    width: 40%;
+    height: auto;
+    margin: 0 auto;
+}
+
+.favoritos__imagen-logo {
+    width: 100%;
+    height: 100%;
+    margin: 3rem 0;
+    object-fit: cover;
+    display: block;
+}
+
+.favoritos__imagen-review {
+    margin: 0 auto;
+}
+
+.favoritos__header {
+    color: var(--principal);
+}
+
+.favoritos__parrafo {
+    color: var(--gris);
+    margin-bottom: 3rem;
+}
+
+@media screen and (min-width: 768px) { 
+    .favoritos__container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 5rem;
+    }
+
+    .favoritos__item {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        grid-template-rows: 1fr 1fr 3fr 1fr;
+        text-align: left;
+    }
+
+    .favoritos__figure-logo {
+        grid-area: 2 / 1 / 4 / 2;
+        width: fit-content;
+    }
+
+    .favoritos__imagen-logo {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        display: block;
+        margin: 0;
+    }
+
+    .favoritos__figure-review {
+        grid-area: 1 / 2 / 2 / 3;
+        padding: 0 2rem;
+        align-self: self-end;
+    }
+
+    .favoritos__imagen-review {
+        margin: 0;
+    }
+
+    .favoritos__header {
+        grid-area: 2 / 2 / 3 / 3;
+        padding: 0 2rem;
+    }
+
+    .favoritos__parrafo {
+        grid-area: 3 / 2 / 5 / 3;
+        padding: 0 2rem;
+        line-height: 1.5;
+    }
+}
+
+/*! REGISTRAR */
+.registrar {
+    margin-top: 5rem;
+    padding: 1rem;
+}
+
+.registrar__titulo {
+    text-align: center;
+}
+
+.resgistrar__parrafo {
+    margin-top: 1rem;
+    color: var(--gris);
+    line-height: 1.5;
+}
+
+.registrar__boton {
+    text-decoration: none;
+    color: var(--blanco);
+    font-weight: 700;
+    border-radius: 1rem;
+    background-color: var(--principal);
+    padding: 0.5rem;
+    text-align: center;
+}
+
+@media screen and (max-width: 768px) { 
+    .registrar__boton {
+        display: block;
+    }
+}
+
+@media screen and (min-width: 768px) { 
+    .registrar__container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+
+    .registrar__texto {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .registrar__boton {
+        padding: 0.5rem 3rem;
+        text-align: right;
+        align-self: flex-end;
+    }
+}
+
+/*! FOOTER */
+.footer {
+    margin-top: 5rem;
+    background-color: var(--gris);
+    color: var(--blanco);
+}
+
+.footer__container {
+    text-align: center;
+}
+
+.footer__item {
+    margin-bottom: 3rem;
+}
+
+.footer__lista {
+    list-style: none;
+}
+
+.footer__reserva {
+    text-align: center;
+    background-color: var(--principal);
+    color: var(--blanco);
+    padding: 1.5rem 3rem;
+    line-height: 1.2;
+}
+
+@media screen and (min-width: 768px) { 
+    .footer__container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        text-align: left;
+    }
+}
