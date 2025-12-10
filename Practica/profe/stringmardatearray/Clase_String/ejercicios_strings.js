@@ -79,9 +79,17 @@ console.log(`Cadena empieza con lugar:${empieza_con_lugar?'Sí':'No'}`);
 
 //11. Crea una variable contenga “En un lugar de la Mancha de cuyo nombre no quiero acordarme”. Usando el método substr debes extraer la palabra ‘lugar’. Extrae también de la frase la palabra ‘lugar’ pero usando el método substring.
 console.log(`----------------- EJ11 ----------------------------`);
-let ej11_cadena="En un lugar de la Mancha de cuyo nombre no quiero acordarme";
-let ej11_subcadena=ej5_cadena.substr(6,5);
-console.log(`Subcadena:${ej11_subcadena}`);
+
+let ej11_cadena = "En un lugar de la Mancha de cuyo nombre no quiero acordarme";
+
+// Usando substr (posición inicial, longitud)
+let ej11_subcadena = ej11_cadena.substr(6, 5);
+console.log(`Subcadena con substr: ${ej11_subcadena}`);
+
+// Usando substring (posición inicial, posición final sin incluir)
+let ej11_subcadena2 = ej11_cadena.substring(6, 11);
+console.log(`Subcadena con substring: ${ej11_subcadena2}`);
+
 
 //12. Crea la variable “   Javier Soldado   “. Usando el método trim debes obtener la palabra “Javier Soldado” (debes quitar todos espacios anteriores y posteriores).
 console.log(`----------------- EJ12 ----------------------------`);
