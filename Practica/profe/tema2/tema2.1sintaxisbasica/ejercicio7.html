@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cálculo de sueldo con antigüedad</title>
+</head>
+
+<body>
+    <h1>Calcular sueldo a pagar</h1>
+
+    <form action="">
+        <label for="sueldo">Sueldo actual (€):</label><br>
+        <input type="text" id="sueldo"><br><br>
+
+        <label for="antiguedad">Años de antigüedad:</label><br>
+        <input type="text" id="antiguedad"><br><br>
+    </form>
+
+    <input type="button" value="Calcular" onclick="calcular()">
+    <br><br>
+
+    <label for="resultado">Nota media:</label><br>
+    <textarea id="resultado" rows="5" cols="50" readonly></textarea><br><br>
+
+    <script>
+        function calcular() {
+            let sueldoStr = document.getElementById("sueldo").value;
+            let antigStr = document.getElementById("antiguedad").value;
+
+            // Validaciones básicas (estilo simple)
+            if (sueldoStr === "" || isNaN(Number(sueldoStr))) {
+                alert("El sueldo no es correcto.");
+                return;
+            }
+            if (antigStr === "" || isNaN(Number(antigStr))) {
+                alert("La antigüedad no es correcta.");
+                return;
+            }
+
+            let sueldo = Number(sueldoStr);
+            let antig = Number(antigStr);
+
+            if (sueldo <= 0) {
+                alert("El sueldo debe ser mayor que 0.");
+                return;
+            }
+            if (antig < 0) {
+                alert("La antigüedad no puede ser negativa.");
+                return;
+            }
+
+            let aumento = 0;
+            let motivo = "";
+
+            if (sueldo < 500 && antig >= 10) {
+                aumento = sueldo * 0.20;
+                motivo = "Aumento del 20% por antigüedad ≥ 10 años y sueldo < 500.";
+            } else if (sueldo < 500 && antig < 10) {
+                aumento = sueldo * 0.05;
+                motivo = "Aumento del 5% por antigüedad < 10 años y sueldo < 500.";
+            } else {
+                aumento = 0;
+                motivo = "Sueldo ≥ 500: no se aplica aumento.";
+            }
+
+            let sueldoFinal = sueldo + aumento;
+
+            document.getElementById("resultado").value =
+                "Sueldo a pagar: " + sueldoFinal + " €\n" + motivo;
+        }
+    </script>
+</body>
+
+</html>

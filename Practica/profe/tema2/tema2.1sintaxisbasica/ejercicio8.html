@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tabla de multiplicar</title>
+</head>
+<body>
+  <h1>Generar tabla de multiplicar</h1>
+  
+
+  <form action="">
+    <label for="tabla">Número de la tabla:</label><br>
+    <input type="text" id="tabla"><br><br>
+
+    <label for="maximo">Valor máximo:</label><br>
+    <input type="text" id="maximo"><br><br>
+  </form>
+
+  <input type="button" value="Generar" onclick="generarTabla()">
+  <br><br>
+
+  <label for="salida">Resultado:</label><br>
+  <textarea id="salida" rows="10" cols="40" readonly></textarea>
+
+  <script>
+    function generarTabla() {
+      let tablaStr = document.getElementById("tabla").value;
+      let maxStr   = document.getElementById("maximo").value;
+
+      // Validaciones simples
+      if (tablaStr === "" || isNaN(Number(tablaStr))) {
+        alert("El número de la tabla no es correcto.");
+        return;
+      }
+      if (maxStr === "" || isNaN(Number(maxStr))) {
+        alert("El valor máximo no es correcto.");
+        return;
+      }
+
+      let tabla = Number(tablaStr);
+      let max   = Number(maxStr);
+
+      if (max <= 0) {
+        alert("El valor máximo debe ser mayor que 0.");
+        return;
+      }
+
+      // Construir la salida
+      let texto = "";
+      for (let i = 1; i <= max; i++) {
+        texto += tabla + " x " + i + " = " + (tabla * i) + "\n";
+      }
+
+      document.getElementById("salida").value = texto;
+    }
+  </script>
+</body>
+</html>

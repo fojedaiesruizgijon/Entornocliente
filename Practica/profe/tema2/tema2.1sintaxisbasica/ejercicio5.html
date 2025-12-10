@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nota media</title>
+</head>
+
+<body>
+    <h1>Calcular nota media</h1>
+
+    <form action="">
+        <label for="nota1">Nota Trimestre 1:</label><br>
+        <input type="text" id="nota1"><br><br>
+        
+        <label for="nota2">Nota Trimestre 2:</label><br>
+        <input type="text" id="nota2"><br><br>
+
+        <label for="nota3">Nota Trimestre 3:</label><br>
+        <input type="text" id="nota3"><br><br>
+
+    </form>
+
+    <input type="button" onclick="calcular()" value="Calcular">
+    <br>
+    <label for="resultado">Nota media:</label><br>
+    <textarea id="resultado" rows="5" cols="50" readonly></textarea><br><br>
+
+    <script>
+        function calcular() {
+            let nota1,nota2,nota3;
+            let nota1Str,nota2Str,nota3Str;
+            let notaMedia;
+            
+            nota1Str = document.getElementById("nota1").value;
+            nota2Str = document.getElementById("nota2").value;
+            nota3Str = document.getElementById("nota2").value;
+
+            // Validación de los datos del formulario
+            if (nota1Str == "" || isNaN(Number(nota1Str))) {
+                alert("Nota1 no es correcta");
+                return;
+            }
+            nota1=Number(nota1Str);
+
+            if (nota2Str == "" || isNaN(Number(nota2Str))) {
+                alert("Nota2 no es correcta");
+                return;
+            }
+            nota2=Number(nota2Str);
+
+            if (nota3Str == "" || isNaN(Number(nota3Str))) {
+                alert("Nota3 no es correcta");
+                return;
+            }
+            nota3=Number(nota3Str);
+
+           notaMedia = calcularNotaMedia(nota1,nota2,nota3);
+
+            document.getElementById("resultado").value = notaMedia;
+        }
+
+        function calcularNotaMedia(nota1,nota2,nota3) {
+            return (nota1+nota2+nota3)/3;
+        }
+
+
+    </script>
+</body>
+
+</html>

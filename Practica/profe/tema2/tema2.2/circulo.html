@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="button" onclick="pedirDatos()" value="Pedir radio">
+    <input type="button" onclick="comprobarValidacionParametro()" value="Validación parámetros">
+
+    <script>
+
+        // Parte 1: devolvemos un array
+        function calcularCirculo_v1(radio) {
+            // Validamos el parámetro radio(que esté definido, que sea un número y que sea positivo)
+            if (radio == undefined) throw new Error("Falta el parámetro radio");
+            if (typeof radio != 'number') throw new Error("El parámetro radio no es un número");
+            if (radio < 0) throw new Error("El radio no puede ser negativo");
+
+            let perimetro = redondearDecimales(2 * Math.PI * radio, 2);
+            let area = redondearDecimales(Math.PI * Math.pow(radio, 2), 2);
+            return [perimetro, area]; // Devolvemos un array
+        }
+
+        // Parte 2: devolvemos un objeto literal
+        function calcularCirculo_v2(radio) {
+            // Validamos el parámetro radio(que esté definido, que sea un número y que sea positivo)
+            if (radio == undefined) throw new Error("Falta el parámetro radio");
+            if (typeof radio != 'number') throw new Error("El parámetro radio no es un número");
+            if (radio < 0) throw new Error("El radio no puede ser negativo");
+
+            let p = redondearDecimales(2 * Math.PI * radio, 2);
+            let a = redondearDecimales(Math.PI * Math.pow(radio, 2), 2);
+            return { perimetro: p, area: a }; // Devolvemos un objeto
+        }
+
+        // Función auxiliar para redondear
+        function redondearDecimales(numero, decimales) {
+            return Math.round(numero * Math.pow(10, decimales)) / Math.pow(10, decimales);
+        }
+
+        function pedirDatos() {
+            let radio = parseFloat(prompt("Introduce el radio del círculo"));
+            let array;
+            let objeto;
+            let perimetro, area;
+
+            // Usando la función calcularCirculo_v1 que devuelve el perímetro y el área en un arr  ay
+            array = calcularCirculo_v1(radio);
+            perimetro = array[0]; // En la primera posición del array tenemos el perímetro
+            area = array[1]; // En la segunda posición del array tenemos el área
+            console.log(`Método1 (retorno de array en la función) =>  El círculo de radio ${radio} tiene un perímetro de ${perimetro} y un área de ${area}`);
+
+            // Usando la función calcularCirculo_v2 que devuelve el perímetro y el área en un objeto literal
+            objeto = calcularCirculo_v2(radio);
+            perimetro = objeto.perimetro; // En la primera posición del array tenemos el perímetro
+            area = objeto.area; // En la segunda posición del array tenemos el área
+            console.log(`Método2 (retorno de objeto en la función) => El círculo de radio ${radio} tiene un perímetro de ${perimetro} y un área de ${area}`);
+
+            alert("Ver salida en consola de depuración");
+        }
+
+        function comprobarValidacionParametro() {
+            // Invocamos a la función sin ningún argumento
+            try {
+                calcularCirculo_v1();
+            } catch (error) {
+                alert(`Error: ${error.message}`);
+            }
+
+            // Invocamos a la función con un argumento que no es númerico
+            try {
+                calcularCirculo_v1("hola");
+            } catch (error) {
+                alert(`Error: ${error.message}`);
+            }
+
+            // Invocamos a la función con un número negativo
+            try {
+                calcularCirculo_v1(-3.5);
+            } catch (error) {
+                alert(`Error: ${error.message}`);
+            }
+
+        }
+
+
+    </script>
+
+
+</body>
+
+</html>

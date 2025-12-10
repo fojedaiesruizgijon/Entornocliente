@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<title>Funciones y testeos</title>
+	<meta charset="utf-8">
+</head>
+<body>
+	<h1>Comprueba años bisiestos </h1>
+	<br />
+	<input type="button" onclick="pedirAñoUsuario();" value="Pedir año" />
+	<input type="button" onclick="test1();" value="Testeo volcando a consola" />
+	<input type="button" onclick="test2();" value="Testeo con valores de entrada y valores experados" />
+		<script>
+
+		// Función con código reutilizable (todos los datos de entrada se los pasamos como argumentos y la salida sólo será con un return)
+		// Entrada: año del cual queremos comprobar si es o no bisiesto
+		// Retorna: valor booleano (true si el año es bisiesto y false en caso contrario)
+		function esBisiesto(año) {
+			if (año % 400 == 0) {
+				//console.log("rama1");
+				return true;
+	
+			}
+			if (año % 4 == 0 && año % 100 != 0) {
+				//console.log("rama2");
+				return true;
+			}
+			//console.log("rama3");
+			return false;
+		}
+
+
+		// Función para pedir un número al usuario y mostrar en un alert la paridad
+		function pedirAñoUsuario() {
+			let año = parseInt(prompt("Introduce un año"));
+			if (esBisiesto(año)) alert(`El año ${año} sí es bisiesto`);
+			else alert(`El año ${año} no es bisiesto`);
+		}
+
+		// Función de testeo 1.
+		// Llamamos a la función esBisiesto con un rango de años (los de los siglos XX y XXI) indicado en un bucle for para mostrar por consola sólo los que sí son bisiestos
+		// Recuerda pulsar F12 en el navegador para ver la salida de la consola
+		function test1() {
+			console.log("***************************************************");
+			console.log("TESTEO VOLCANDO A CONSOLA SALIDA DE LA FUNCIÓN CON LOS AÑOS DEL SIGLO XX Y XXI");
+			console.log("***************************************************");
+			let años = [];
+			let bisiesto;
+			// El bucle recorrerá los años de los siglos XX y XXI
+			for (i = 1901; i <= 2100; i++) {
+				bisiesto = esBisiesto(i);
+				// Sólo vamos a mostrar por consola los años bisiestos, para poder compararlos con la lista de la siguiente url:
+				// https://www.wikiwand.com/es/Anexo:A%C3%B1os_bisiestos_en_los_siglos_XX,_XXI_y_XXII
+				if(bisiesto) console.log(`El año ${i} sí es bisiesto`);
+				
+			}
+			alert("Ver resultados del testeo en consola de depuración");
+		}
+
+		// Función de testeo 2. 
+		// Preparamos un array con valores de entrada a la función y otro array con los valores experados (los que debería devolver la función si está bien implementada)
+		// LLamamos a la función con cada uno de los valores de entrada y comprobamos el valor retornado con el valor experado
+		// Recuerda pulsar F12 en el navegador para ver la salida de la consola
+		function test2() {
+			console.log("***************************************************");
+			console.log("TESTEO CON VALORES DE ENTRADA Y VALORES EXPERADOS");
+			console.log("***************************************************");
+
+			// En vez de dos arrays (uno para los datos de entrada y otro para los valores experados) 
+			// vamos a usar un array de objetos literales
+			// En cada objeto indicamos el año y si es o no bisiesto
+			let datos = [
+				{año:1600,bisiesto:true},
+				{año:2000,bisiesto:true},
+				{año:2016,bisiesto:true},
+				{año:2020,bisiesto:true},
+				{año:2400,bisiesto:true},
+				{año:1700,bisiesto:false},
+				{año:1800,bisiesto:false},
+				{año:1900,bisiesto:false},
+				{año:2015,bisiesto:false},
+				{año:2019,bisiesto:false}
+			];
+			
+
+			let testOK = true; // Esta variable tendrá inicialmente valor true. Dentro del bucle nada más que en una de las comprobaciones no se cumpla le asignaremos valor false
+			for (let i = 0; i < datos.length; i++) {
+				// Comparamos el valor devuelto por la función con el valor experado contenido en el objeto literal
+				if (esBisiesto(datos[i].año) == datos[i].bisiesto) console.log("entrada=" + datos[i].año + " esperado=" + datos[i].bisiesto + " => OK");
+				else {
+					console.log("entrada=" + datos[i].año + " esperado=" + datos[i].bisiesto + " => FALLA");
+					testOK = false;
+				}
+			}
+
+			if (testOK) console.log("Se ha superado el test"); // Para dar por superado el test no puede fallar ninguna de las comprobaciones valor entrada/valor experado
+			else console.log("No se ha superado el test");
+
+			alert("Ver resultados del testeo en consola de depuración (F12)");
+
+		}
+
+	</script>
+</body>
+
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<title>JavaScript</title>
+	<meta charset="utf-8">
+</head>
+
+<body>
+	<h1>Calificación con nota entera</h1>
+	<br />
+	<input type="button"  onclick="pedirNotaAlUsuario();" value="Pedir nota" />
+	<input type="button"  onclick="testeoVolcarConsola();" value="Testeo Volcar Consola" />
+	<input type="button"  onclick="testeoCajaNegra();" value="Testeo Caja Negra" />
+	<script>
+		
+
+
+
+		// Función que calcula la calificación ("INSUFICIENTE", "SUFICIENTE", etc.) a partir de un número decimal comprendido entre 0 y 10
+		// Parámetros:
+		// - nota: número con decimales
+		// Retorna: calificación ("INSUFICIENTE", "SUFICIENTE", etc.)
+		function verCalificacion(nota) {
+			var notatexto;
+			if (nota >= 0 && nota < 5) notatexto = "INSUFICIENTE";
+			else if (nota >= 5 && nota < 6) notatexto = "SUFICIENTE";
+			else if (nota >= 6 && nota < 7) notatexto = "BIEN";
+			else if (nota >= 7 && nota < 9) notatexto = "NOTABLE";
+			else if (nota >= 9 && nota <= 10) notatexto = "SOBRESALIENTE";
+			else notatexto = "VALOR INCORRECTO";
+			return notatexto;
+
+		}
+
+		function pedirNotaAlUsuario(){
+			let nota=Number(prompt("Introducir la nota"));
+			let calificacion = verCalificacion(nota);
+			alert(`Para una nota de ${nota} el valor devuelto por la función es ${calificacion}`);
+		}
+
+		function testeoVolcarConsola(){
+			const notas = [-1.5, 0, 1, 2, 3, 4.5, 4.9, 5, 5.1, 5.9, 6, 6.1, 6.9, 7, 7.1, 7.9, 8, 8.1, 8.9, 9, 9.1, 9.9, 10, 11];
+			for(let i=0; i < notas.length; i++){
+				let calificacion = verCalificacion(notas[i]);
+				console.log(`Para una nota de ${notas[i]} el valor devuelto por la función es ${calificacion}`);
+			}
+		}
+
+		function testeoCajaNegra() {
+			const datos = [
+				{ nota: -1.5, valorEsperado: "VALOR INCORRECTO" },
+				{ nota: 0, valorEsperado: "INSUFICIENTE" },
+				{ nota: 1, valorEsperado: "INSUFICIENTE" },
+				{ nota: 4.5, valorEsperado: "INSUFICIENTE" },
+				{ nota: 4.9, valorEsperado: "INSUFICIENTE" },
+				{ nota: 5, valorEsperado: "SUFICIENTE" },
+				{ nota: 5.1, valorEsperado: "SUFICIENTE" },
+				{ nota: 5.9, valorEsperado: "SUFICIENTE" },
+				{ nota: 6, valorEsperado: "BIEN" },
+				{ nota: 6.9, valorEsperado: "BIEN" },
+				{ nota: 7, valorEsperado: "NOTABLE" },
+				{ nota: 7.9, valorEsperado: "NOTABLE" },
+				{ nota: 8, valorEsperado: "NOTABLE" },
+				{ nota: 8.9, valorEsperado: "NOTABLE" },
+				{ nota: 9, valorEsperado: "SOBRESALIENTE" },
+				{ nota: 9.9, valorEsperado: "SOBRESALIENTE" },
+				{ nota: 10, valorEsperado: "SOBRESALIENTE" },
+				{ nota: 11, valorEsperado: "VALOR INCORRECTO" }
+			];
+
+			let testSuperado = true;
+
+			for (let i = 0; i < datos.length; i++) {
+				if (verCalificacion(datos[i].nota) == datos[i].valorEsperado) {
+					console.log(`CORRECTO ==> Par una nota de ${datos[i].nota} el valor devuelto por la función es ${datos[i].valorEsperado}`);
+				}
+				else {
+					console.log(`FALLA ==> Par una nota de ${datos[i].nota} el valor devuelto por la función es ${datos[i].valorEsperado}`);
+					testSuperado = false;
+				}
+			}
+
+			console.log(`${testSuperado?"Test superado":"Test NO superado"}`);
+
+			alert("Ver resultados del testeo en consola de depuración (F12)");
+		}
+
+	</script>
+</body>
+
+</html>

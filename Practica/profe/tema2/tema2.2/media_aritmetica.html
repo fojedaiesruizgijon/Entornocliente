@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Función para calcular media aritmética</h1>
+    <input type="button" onclick="testeo1()" value="Testeo1">
+    <script>
+
+        function calculaMedia(array, decimales = 1) {
+            let suma = 0;
+            for (let i = 0; i < array.length; i++) {
+                suma += array[i];
+            }
+            return redondearDecimales(suma / array.length,decimales);
+        }
+
+        // Función auxiliar para redondear un número a un determinado número de decimales
+        // Parámetros:
+        // numero: número a redondear
+        // decimales: número de decimales
+        // Retorna: número redondeado
+        function redondearDecimales(numero, decimales) {
+            return Math.round(numero * Math.pow(10, decimales)) / Math.pow(10, decimales);
+        }
+
+        function testeo1(){
+            let datos = [
+                {array:[8.7, 8.8, 8.702], numeroDecimales:1, valorEsperado:8.7},
+                {array:[8.7, 8.8, 8.702], numeroDecimales:2, valorEsperado:8.73},
+                {array:[8.7, 8.8, 8.702], numeroDecimales:undefined, valorEsperado:8.7},
+                {array:[8.7, 8.8, 8.702], numeroDecimales:0, valorEsperado:9.0},
+            ];
+
+            let testSuperado = true;
+
+            for(let i=0; i < datos.length; i++){
+                let media;
+                if(datos[i].numeroDecimales!=undefined){
+                    media = calculaMedia(datos[i].array, datos[i].numeroDecimales);
+                }else{
+                    media = calculaMedia (datos[i].array);
+                    testSuperado=false;
+                }
+                if(media == datos[i].valorEsperado){
+                    console.log(`CORRECTO ==> Para el array [${datos[i].array}] el valor devuelto es ${media}`);
+                } else {
+                    console.log(`CORRECTO ==> Para el array [${datos[i].array}] el valor devuelto es ${media}`);
+                }
+                console.log(`${testSuperado?"Test superado":"Test NO superdo"}`);
+            }
+        }
+
+    </script>
+</body>
+
+</html>

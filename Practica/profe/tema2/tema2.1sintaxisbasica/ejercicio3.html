@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript</title>
+</head>
+
+<body>
+    <h1>Ejercicio 1: Solicitar números decimales al usuario usando prompt</h1>
+    <h2>Pulsa F12 para ver la consola de depuración</h2>
+
+    <!-- Con el atributo onclick indicamos qué función de JS queremos que se ejecute al pulsar el botón-->
+    <input type="button" onclick="procesar()" value="Ejecutar">
+
+    <script>
+        // Dentro de la etiqueta script va el código en JavaScript
+        function procesar() {
+            let cantidadNumeros = 0, numero, arrayNumeros = [], suma = 0;
+            do {
+                cantidadNumeros = Number(prompt("Indica cuántos números vas a introducir"));
+            } while (cantidadNumeros == 0 || isNaN(cantidadNumeros)) {
+
+            }
+            for (let i = 0; i < cantidadNumeros; i++) {
+                do {
+                    numero = Number(prompt("Introduce el número " + (i+1)));
+                } while (numero == 0 || isNaN(numero));
+                arrayNumeros[i] = numero;
+            }
+            // Calculamos la suma de los elementos del array
+            for (let i = 0; i < arrayNumeros.length; i++) {
+                suma += arrayNumeros[i];
+            }
+            alert("La suma es " + suma);
+
+        } 
+    </script>
+
+</body>
+
+</html>

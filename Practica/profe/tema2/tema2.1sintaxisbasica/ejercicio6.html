@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Porcentaje de aciertos de un test</title>
+</head>
+<body>
+    <h1>Calcular porcentaje de aciertos de un test</h1>
+    
+ <form action="">
+    <label for="total">Número de preguntas:</label><br>
+    <input type="text" id="total"><br><br>
+
+    <label for="aciertos">Número de respuestas acertadas:</label><br>
+    <input type="text" id="aciertos"><br><br>
+  </form>
+
+  <input type="button" value="Calcular" onclick="calcular()">
+  <br><br>
+
+    <label for="resultado">Nota media:</label><br>
+    <textarea id="resultado" rows="5" cols="50" readonly></textarea><br><br>
+
+  <script>
+    function calcular() {
+      let totalStr, aciertosStr;
+      let total, aciertos;
+
+      totalStr = document.getElementById("total").value;
+      aciertosStr = document.getElementById("aciertos").value;
+
+      // Validaciones básicas (siguiendo el estilo de ejercicio5.html)
+      if (totalStr === "" || isNaN(Number(totalStr))) {
+        alert("El número total de preguntas no es correcto.");
+        return;
+      }
+      if (aciertosStr === "" || isNaN(Number(aciertosStr))) {
+        alert("El número de respuestas acertadas no es correcto.");
+        return;
+      }
+
+      total = Number(totalStr);
+      aciertos = Number(aciertosStr);
+
+      if (total <= 0) {
+        alert("El número total de preguntas debe ser mayor que 0.");
+        return;
+      }
+      if (aciertos < 0) {
+        alert("El número de aciertos no puede ser negativo.");
+        return;
+      }
+      if (aciertos > total) {
+        alert("Los aciertos no pueden superar el total de preguntas.");
+        return;
+      }
+
+      let porcentaje = calcularPorcentaje(aciertos, total); 
+      let mensaje = obtenerMensaje(porcentaje);
+
+      document.getElementById("resultado").value =
+        "Porcentaje: " + porcentaje + "%\n" + mensaje;
+    }
+
+    function calcularPorcentaje(aciertos, total) {
+      return (aciertos / total) * 100;
+    }
+
+    function obtenerMensaje(porcentaje) {
+      if (porcentaje >= 90) return "Excelente";
+      if (porcentaje >= 75) return "Muy bien";
+      if (porcentaje >= 50) return "Bien";
+      return "Resultado ineficiente";
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>JavaScript</title>
+</head>
+
+<body>
+	<h1>Ejercicio 1: Solicitar datos al usuario usando prompt</h1>
+	<h2>Pulsa F12 para ver la consola de depuración</h2>
+    
+
+	<!-- Con el atributo onclick indicamos qué función de JS queremos que se ejecute al pulsar el botón-->
+	<input type="button" onclick="procesar()" value="Ejecutar">
+
+	<script>
+		// Dentro de la etiqueta script va el código en JavaScript
+		function procesar() { 
+            let nombre, edad, altura, esFumadorStr, esFumador; 
+            do {
+                nombre = prompt("Dime tu nombre");
+            }  while( nombre=="");
+            
+            edad=Number(prompt("Dime tu edad"));
+            altura=Number(prompt("Dime tu altura en metros"));
+            esFumadorStr = prompt("¿Eres fumador? (si/no)");
+            if(esFumadorStr=="si") esFumador=true;
+            else esFumador=false;
+
+            let textoSalida = "Te llamas " + nombre + ", tienes " + edad + " años, una altura de " + altura + "m y " + esFumadorStr + " eres fumador";
+            
+            // Mostramos el resultado en un alert
+            alert(textoSalida);
+            // Ahora lo volcamos a la consola
+            console.log(textoSalida);
+
+		} 
+	</script>
+
+</body>
+
+</html>

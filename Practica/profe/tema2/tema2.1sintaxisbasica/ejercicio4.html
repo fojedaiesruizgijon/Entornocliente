@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Volumen cilindro</title>
+</head>
+
+<body>
+    <h2>Introduce tus datos</h2>
+
+    <form action="">
+        <label for="radio">Radio:</label><br>
+        <input type="text" id="radio"><br><br>
+
+        <label for="altura">Altura:</label><br>
+        <input type="text" id="altura"><br><br>
+
+    </form>
+
+    <input type="button" onclick="calcular()" value="Enviar">
+
+    <label for="resultado">Volumen:</label><br>
+    <textarea id="resultado" rows="5" cols="50" readonly></textarea><br><br>
+
+    <script>
+        function calcular() {
+            let radio = Number(document.getElementById("radio").value);
+            let altura = Number(document.getElementById("altura").value);
+
+            // Validación de los datos del formulario
+            if (radio == 0 || isNaN(radio)) {
+                alert("Radio no correcto");
+                return;
+            }
+            if (altura == 0 || isNaN(altura)) {
+                alert("Altura no correcta");
+                return;
+            }
+
+           let volumen = volumenCilindro(radio,altura);
+
+            document.getElementById("resultado").value = volumen;
+        }
+
+        function volumenCilindro(radio, altura) {
+            return Math.PI * Math.pow(radio, 2) * altura;
+        }
+
+
+    </script>
+</body>
+
+</html>

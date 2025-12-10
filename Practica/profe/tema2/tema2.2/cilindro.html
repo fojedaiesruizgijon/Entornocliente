@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Función volumenCilindro con parámetro de tipo object</h1>
+    <input type="button" onclick="calcular()" value="Calcular">
+    <script>
+        // Función volumenCilindro calcula el volumen de un cilindro
+        // Parámetros:
+        // cilindro: objeto con la estructura {radio:<valor>, altura:<valor>}
+        // Retorna el volumen del cilindro
+        function volumenCilindro(cilindro){
+            let radio=cilindro.radio;
+            let altura=cilindro.altura;
+            return redondearDecimales(Math.PI * Math.pow(radio,2) * altura,3);
+        }
+
+        // Función auxiliar para redondear
+        function redondearDecimales(numero, decimales) {
+            return Math.round(numero * Math.pow(10, decimales)) / Math.pow(10, decimales);
+        }
+
+        function calcular(){
+            let r = Number(prompt("Introducir el radio del cilindro"));
+            let a = Number(prompt("Introducir la altura del cilindro"));
+            let cilindro = {radio:r, altura: a};
+            let volumen = volumenCilindro (cilindro);
+            alert(`El volumen de un cilindro con radio ${cilindro.radio} y altura ${cilindro.altura} es ${volumen}`);
+        }
+
+
+    </script>
+</body>
+</html>
