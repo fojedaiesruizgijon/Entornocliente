@@ -126,3 +126,171 @@ console.log(`Primer elto impar del array [${ej16_array}]: ${primer_elto_impar}`)
 let ej17_array=['Plátanos', 'Naranjas', 'Pomelos', 'Plátanos', 'Fresas'];
 let ultima_posicion_platanos= ej17_array.lastIndexOf('Plátanos');
 console.log(`Última posición de Plátanos en el array: ${ultima_posicion_platanos}`);
+/*En ES5 podemos crear objetos (Objects) que están constituidos por propiedades y métodos. Para crear nuevos objetos usaremos la notación literal de objeto:
+
+ let persona = {
+                         nombre: "Pedro",
+                          edad: 30,
+                          cumplirAños: function(){
+                               this.edad++
+                            }
+                         }
+Nota:  nombre y edad serían propiedades del objeto y cumplirAños() sería un método del mismo. Fíjate también que para acceder a las propiedades del objeto dentro de un método es necesario usar this (ejemplo: this.edad).
+
+Veamos otro ejemplo de un objeto alumno con las propiedad nombre, fechaNac y notas y el método toString():
+let alumno = {
+	nombre: "Juan",
+	fechaNac: new Date(2001,2,15),
+	notas: [6.7, 7.2, 8.9, 5.1],
+	toString: function(){
+		return `Me llamo ${this.nombre}, nací el ${this.fechaNac.toLocaleDateString()} y mis notas son: ${this.notas.toString()}`
+	}
+}*/
+/** 
+ * <!DOCTYPE html>
+<html>
+
+<head>
+    <title>Ejemplo de JavaScript</title>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+
+    <script>
+        class Cliente {
+            constructor(nombre, saldo) {
+                this.nombre = nombre;
+                this.saldo = saldo;
+            }
+
+            depositar(dinero) {
+                this.saldo = this.saldo + dinero;
+            }
+
+            extraer(dinero) {
+                this.saldo = this.saldo - dinero;
+            }
+        }
+
+        const cliente1 = new Cliente('diego', 1200);
+        document.write('Nombre del cliente:' + cliente1.nombre + '<br>');
+        document.write('Saldo actual:' + cliente1.saldo + '<br>');
+        cliente1.depositar(120);
+        document.write('Saldo luego de depositar $120---->' + cliente1.saldo + '<br>');
+        cliente1.extraer(1000);
+        document.write('Saldo luego de extraer $1000---->' + cliente1.saldo + '<br>');
+
+        const cliente2 = new Cliente('ana', 100);
+        document.write('Nombre del cliente:' + cliente2.nombre + '<br>');
+        document.write('Saldo actual:' + cliente2.saldo + '<br>');
+        cliente2.depositar(200);
+        document.write('Saldo luego de depositar $200---->' + cliente2.saldo + '<br>');
+    </script>
+
+</body>
+
+</html>
+Para declarar una clase en ES6 utilizamos la palabra clave class y seguidamente el nombre de la clase:
+
+        class Cliente {
+Luego entre llaves encerramos todos los métodos de dicha clase.
+
+Tenemos la palabra clave 'constructor' para definir el primer método que se ejecutará al crear el objeto:
+
+            constructor(nombre, saldo) {
+                this.nombre = nombre;
+                this.saldo = saldo;
+            }
+Los atributos se les debe anteceder la palabra clave this
+
+Los atributos que definamos se tiene acceso en todos los métodos de la clase:
+
+            depositar(dinero) {
+                this.saldo = this.saldo + dinero;
+            }
+Cuando creamos un objeto de la clase Cliente lo primero que se ejecuta es el constructor, debemos pasar los datos a los parámetros:
+
+        const cliente1 = new Cliente('diego', 1200);
+A los demás métodos del objeto 'cliente1' los llamamos antecediendo primero el nombre del objeto:
+
+        cliente1.depositar(120);
+Problema
+Plantear una clase llamada Menu que administre una lista de enlaces. Definir como atributos dos vectores paralelos que almacenen en uno la 'url' y en el otro la 'descripcion' de dicho enlace. Permitir insertar enlaces y finalmente mediante un método que le pasamos el 'id' de un elemento HTML proceda a crearlo al menú.
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Ejemplo de JavaScript</title>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+
+    <div id="menu"></div>
+
+    <script>
+        class Menu {
+            constructor() {
+                this.enlaces = [];
+                this.descripcion = [];
+            }
+
+            insertar(enlace, descripcion) {
+                this.enlaces.push(enlace);
+                this.descripcion.push(descripcion);
+            }
+
+            mostrar(elemento) {
+                let cadena = '<div>';
+                for (let x = 0; x < this.enlaces.length; x++)
+                    cadena += `[<a href="${this.enlaces[x]}">${this.descripcion[x]}</a>]`;
+                cadena += '</div>';
+                document.getElementById(elemento).innerHTML = cadena;
+            }
+        }
+
+        const menu = new Menu();
+        menu.insertar("http://www.google.com", "Google");
+        menu.insertar("http://www.bing.com", "Bing");
+        menu.insertar("http://www.yahoo.com", "Yahoo");
+        menu.mostrar('menu');
+    </script>
+
+</body>
+
+</html>
+Cuando se termina de cargar la página por completo, por eso definimos el código JavaScript en la parte inferior, procedemos a crear un objeto de la clase Menu, insertar un conjunto de enlaces y finalmente generar la anclas:
+
+        const menu = new Menu();
+        menu.insertar("http://www.google.com", "Google");
+        menu.insertar("http://www.bing.com", "Bing");
+        menu.insertar("http://www.yahoo.com", "Yahoo");
+        menu.mostrar('menu');
+La clase Menu encapsula la administración de los enlaces y descripciones de dichos enlaces. En el constructor creamos los dos vectores:
+
+        class Menu {
+            constructor() {
+                this.enlaces = [];
+                this.descripcion = [];
+            }
+El método insertar llegan dos string con el enlace y descripción de dicho enlace, procedemos a agregarlos a los vectores:
+
+            insertar(enlace, descripcion) {
+                this.enlaces.push(enlace);
+                this.descripcion.push(descripcion);
+            }
+El método mostrar recibe el 'id' del elemento HTML donde se debe insertar todas las anclas:
+
+            mostrar(elemento) {
+                let cadena = '<div>';
+                for (let x = 0; x < this.enlaces.length; x++)
+                    cadena += `[<a href="${this.enlaces[x]}">${this.descripcion[x]}</a>]`;
+                cadena += '</div>';
+                document.getElementById(elemento).innerHTML = cadena;
+            }
+ * 
+ * 
+ * 
+*/

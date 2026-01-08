@@ -73,6 +73,7 @@ body {
 .container {
     max-width: 120rem;
     margin: 0 auto;
+    
 }
 
 img {
@@ -130,7 +131,7 @@ img {
     .header {
         display: flex;
         flex-direction: row;
-        justify-content: space-between;
+        justify-content: center;
         align-items: center;
         margin-top: 2rem;
     }

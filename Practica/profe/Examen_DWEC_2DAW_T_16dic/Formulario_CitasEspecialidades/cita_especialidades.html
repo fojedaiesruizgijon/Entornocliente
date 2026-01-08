@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="css/estilos.css">
+    <script src="codigo.js" refer></script>
+</head>
+
+<body>
+    <div class="container border">
+        <div class="row">
+            <header id="hearder" class="col-12 text-white p-4">
+                <div style="display:flex">
+                    <img src="images/quiron_logo.png" alt="">
+                    <h1>Especialidades Hospital Quirón Ruiz</h1>
+                </div>
+
+            </header>
+
+            <nav id="menu" class="col-12 bg-secondary text-white">
+                <ul class="row w-50">
+                    <li class="col">Inicio</li>
+                    <li class="col">Página 1</li>
+                    <li class="col">Página 2</li>
+                    <li class="col">Página 3</li>
+                    <li class="col">Contacto</li>
+                </ul>
+            </nav>
+
+            <div id="content" class="col-12 mb-4">
+                <div class="row">
+                    <section class="container border col-9 mt-4 mb-4">
+                        <form name="miformulario" method="POST" action="procesar.php">
+                            <h4>Datos Personales</h4>
+
+                            <div class="row mb-4">
+                                <div class="col-md-8">
+                                    <label for="inputNombreCompleto" class="form-label">Nombre completo(*)</label>
+                                    <input type="text" class="form-control" id="inputNombreCompleto" required>
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="inputMovil" class="form-label">Móvil(*)</label>
+                                    <input type="text" class="form-control" id="inputMovil" placeholder="">
+                                </div>
+                            </div>
+
+                            <h4>Especialidad y médico</h4>
+                            <div class="row mb-4">
+                                <div class="col-md-6">
+                                    <label class="form-label" for="inputEspecialidad">Especialidad:</label>
+                                    <select class="form-control form-select" id="inputEspecialidad">
+
+                                        <!-- AQUÍ VAN LAS ESPECIALIDADES (ELIMINAR Y GENERAR DESDE JS)-->
+                                        <option value="">Seleccionar</option>
+                                        <option value="1">Dermatología</option>
+
+
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label" for="inputMedico">Médico:</label>
+                                    <select class="form-control form-select" id="inputMedico">
+
+                                        <!-- AQUÍ VAN LOSS MÉDICOS (ELIMINAR Y GENERAR DESDE JS)-->
+                                        <option value="">Seleccionar</option>
+                                        <option value="1">Juan Sánchez</option>
+                                        <option value="2">María Quevedo</option>
+
+                                    </select>
+                                </div>
+
+                            </div>
+
+                            <h4>Fecha</h4>
+                            <div class="row mb-4">
+                                <div class="col-md-6">
+                                    <label class="form-label" for="inputFechaCita">Fecha cita: (al menos tres días
+                                        antes) (*):</label>
+                                    <input class="form-control" type="date" id="inputFechaCita">
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label" for="inputHoraCita">Hora cita: 09:10-13:15 (*):</label>
+                                    <input class="form-control" type="time" id="inputHoraCita">
+                                </div>
+                            </div>
+                            <hr>
+                            <input type="submit" class="btn btn-primary" id="enviar" value="Enviar">
+                            <input type="reset" class="btn btn-warning" value="Borrar">
+                        </form>
+                    </section>
+
+                    <aside class="col-3 border mt-4 mb-4">
+                        <h2>Servicios</h2>
+                        <div class="lateral row bg-light align-items-center">
+                            <div class="col bg-primary col-4 align-self-start">Servicio 1</div>
+                            <div class="col bg-success col-4 align-self-center">Servicio 2</div>
+                            <div class="col bg-warning col-4 align-self-end">Servicio 3</div>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </div>
+
+
+
+        <footer class="col-lg-12">
+            Quirón Ruiz Diciembre 2025&copy;
+        </footer>
+
+    </div>
+    </div>
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="./js/jquery-3.3.1.slim.min.js"></script>
+    <script src="./js/popper.min.js"></script>
+    <script src="./js/bootstrap.min.js"></script>
+    <script src="./js/funciones.js"></script>
+
+</body>
+
+</html>
